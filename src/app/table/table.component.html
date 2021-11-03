@@ -1,1 +1,56 @@
-<p>Table Work</p>
+
+<div class="wrapper" style="padding-left: 250px;">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <!-- Table Products -->
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+      <ng-container *ngIf = "items.length < 0">
+        <p>No Data Found</p>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container *ngIf = "items.length > 0">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="provider">
+        <mat-header-cell *matHeaderCellDef> Provider </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.provider}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+      </ng-container>
+    </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+    <mat-paginator
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+
+  </div>
+  <app-footer></app-footer>
+</div>
+

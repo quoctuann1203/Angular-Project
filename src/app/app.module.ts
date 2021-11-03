@@ -12,6 +12,13 @@ import { TableComponent } from './table/table.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MainContentComponent } from './main-content/main-content.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,6 +36,13 @@ import { MainContentComponent } from './main-content/main-content.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+		AngularFirestoreModule,
+		AngularFireAuthModule,
+		BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
