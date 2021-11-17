@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
-    
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
