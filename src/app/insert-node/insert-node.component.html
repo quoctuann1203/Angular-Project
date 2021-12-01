@@ -1,0 +1,135 @@
+<div class="wrapper" style="padding-left: 250px">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+
+  <div class="form-insert">
+    <ng-container *ngIf="params">
+      <h2>Edit Product</h2>
+    </ng-container>
+    <ng-container *ngIf="!params">
+      <h2>Add Product</h2>
+    </ng-container>
+    <form [formGroup]="insertFrm" (ngSubmit)="onSubmit()">
+      <!-- <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" id="id" formControlName="id" aria-describedby="emailHelp" placeholder="Enter ID"> -->
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      <!-- <div *ngIf="insertFrm.controls.id.invalid && (insertFrm.controls.id.dirty ||insertFrm.controls.id.touched)">
+          <small *ngIf="insertFrm.controls.id.hasError('required')" class="text-danger">Id is required.</small>
+        </div>
+      </div> -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+          placeholder="Name"
+        />
+        <div
+          *ngIf="
+            insertFrm.controls.name.invalid &&
+            (insertFrm.controls.name.dirty || insertFrm.controls.name.touched)
+          "
+        >
+          <small
+            *ngIf="insertFrm.controls.name.hasError('required')"
+            class="text-danger"
+            >Name is required.</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          formControlName="price"
+          placeholder="Price"
+        />
+        <div
+          *ngIf="
+            insertFrm.controls.price.invalid &&
+            (insertFrm.controls.price.dirty || insertFrm.controls.price.touched)
+          "
+        >
+          <small
+            *ngIf="insertFrm.controls.price.hasError('required')"
+            class="text-danger"
+            >Price is required.</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="provider">Provider</label>
+        <input
+          type="text"
+          class="form-control"
+          id="provider"
+          formControlName="provider"
+          placeholder="Provider"
+        />
+        <div
+          *ngIf="
+            insertFrm.controls.provider.invalid &&
+            (insertFrm.controls.provider.dirty ||
+              insertFrm.controls.provider.touched)
+          "
+        >
+          <small
+            *ngIf="insertFrm.controls.provider.hasError('required')"
+            class="text-danger"
+            >Provider is required.</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          id="quantity"
+          formControlName="quantity"
+          placeholder="Quantity"
+        />
+        <div
+          *ngIf="
+            insertFrm.controls.quantity.invalid &&
+            (insertFrm.controls.quantity.dirty ||
+              insertFrm.controls.quantity.touched)
+          "
+        >
+          <small
+            *ngIf="insertFrm.controls.quantity.hasError('required')"
+            class="text-danger"
+            >Quantity is required.</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          formControlName="description"
+          placeholder="Description"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!insertFrm.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <div class="footer-table">
+    <app-footer></app-footer>
+  </div>
+</div>

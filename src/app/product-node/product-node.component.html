@@ -1,0 +1,33 @@
+<div class="wrapper" style="padding-left: 250px;">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+
+  <div class="table-product">
+    <h2>Table Product</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Provider</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items | async">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.provider}}</td>
+          <td>{{item.quantity}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <mat-paginator #paginator [pageSizeOptions]="[2, 4, 6]" showFirstLastButtons></mat-paginator>
+
+  <div class="footer-table">
+    <app-footer></app-footer>
+  </div>
+</div>

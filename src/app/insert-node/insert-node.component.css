@@ -1,0 +1,22 @@
+.form-insert {
+  max-width: 500px;
+  padding: 14px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.form-insert > h2 {
+  font-size: 40px;
+  text-align: center;
+  color: rgb(80, 128, 218);
+}
+
+.footer-table {
+  max-width: 1470px;
+  padding: 0 14px;
+}

@@ -20,6 +20,16 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductNodeComponent } from './product-node/product-node.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InsertNodeComponent } from './insert-node/insert-node.component';
+import {MatIconModule} from '@angular/material/icon';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +42,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TableComponent,
     LoginComponent,
     RegisterComponent,
-    MainContentComponent
+    MainContentComponent,
+    ProductNodeComponent,
+    InsertNodeComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +56,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 		BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule
 
   ],
   providers: [],
