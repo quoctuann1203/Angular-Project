@@ -29,6 +29,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Phan trang
   @ViewChild('paginator')
   paginator!: MatPaginator;
 
@@ -37,6 +38,7 @@ export class TableComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  //Confirm
   deleteConfirmationDialog(id : any): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {

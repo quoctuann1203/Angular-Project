@@ -17,6 +17,14 @@ const routes: Routes = [
     component: TableComponent
   },
   {
+    path:"login",
+    component: LoginComponent
+  },
+  {
+    path:"register",
+    component: RegisterComponent
+  },
+  {
     path:"products-node",
     component: ProductNodeComponent,
     pathMatch: 'full'
