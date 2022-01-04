@@ -1,5 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -9,25 +12,30 @@ import { ProductsService } from '../services/products.service';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  items: Product[]=[];
+  items: Product[] = [];
   private itemsCollection: AngularFirestoreCollection<Product>;
-  displayedColumns = ['id', 'name', 'price', 'provider','quantity','action'];
+  displayedColumns = ['id', 'name', 'price', 'provider', 'quantity', 'action'];
   dataSource = new MatTableDataSource<Product>(this.items);
 
-  constructor(private readonly afs: AngularFirestore,public dialog: MatDialog, private productService : ProductsService) {
-    this.itemsCollection = afs.collection<Product>('Products');//lay thong tin
-    this.itemsCollection.valueChanges({idField:'key'}).subscribe((products: Product[]) => {
-    this.items = products;
-    this.dataSource.data = this.items;
-    })
+  constructor(
+    private readonly afs: AngularFirestore,
+    public dialog: MatDialog,
+    private productService: ProductsService
+  ) {
+    this.itemsCollection = afs.collection<Product>('Products'); //lay thong tin
+    this.itemsCollection
+      .valueChanges({ idField: 'key' })
+      .subscribe((products: Product[]) => {
+        this.items = products;
+        this.dataSource.data = this.items;
+      });
     // this.add("8","A8",1,"B",6)
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   //Phan trang
   @ViewChild('paginator')
@@ -36,10 +44,11 @@ export class TableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource = new MatTableDataSource(this.items);
     this.dataSource.paginator = this.paginator;
+    localStorage.setItem('product', JSON.stringify(this.dataSource.data));
   }
 
   //Confirm
-  deleteConfirmationDialog(id : any): void {
+  deleteConfirmationDialog(id: any): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
         message: 'Are you sure want to delete?',
@@ -60,8 +69,8 @@ export class TableComponent implements OnInit {
     });
   }
 
-  deleteProduct(id:any) {
-    this.deleteConfirmationDialog(id)
+  deleteProduct(id: any) {
+    this.deleteConfirmationDialog(id);
   }
 
   // add (id:string, name:string,  price: number,provider: string,quantity: number){
@@ -82,11 +91,9 @@ export class TableComponent implements OnInit {
 }
 
 export interface Product {
-  id?:string;
+  id?: string;
   name?: string;
   price?: number;
   provider?: string;
   quantity?: number;
 }
-
-

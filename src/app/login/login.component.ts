@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.isSignedIn) {
-      this.router.navigate(['home']);
+      this.router.navigate(['admin']);
     }
   }
 

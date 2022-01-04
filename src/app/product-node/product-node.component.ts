@@ -8,22 +8,20 @@ import { ProductsService } from '../services/products.service';
 @Component({
   selector: 'app-product-node',
   templateUrl: './product-node.component.html',
-  styleUrls: ['./product-node.component.css']
+  styleUrls: ['./product-node.component.css'],
 })
 export class ProductNodeComponent implements OnInit {
   // items: Product[]=[];
-  items: Observable<Product[]> ;
+  items: any;
   // displayedColumns = ['id', 'name', 'price', 'provider','quantity'];
   constructor(productsrv: ProductsService) {
     this.items = productsrv.getItems();
-    productsrv.getItems().subscribe(item => {console.log(item)})
-
+    // productsrv.getItems().subscribe((item) => {
+    //   console.log(item);
+    // });
   }
 
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   @ViewChild('paginator')
   paginator!: MatPaginator;
@@ -32,5 +30,4 @@ export class ProductNodeComponent implements OnInit {
   //   this.dataSource = new MatTableDataSource(this.items);
   //   this.dataSource.paginator = this.paginator;
   // }
-
 }

@@ -30,6 +30,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { TableUserComponent } from './table-user/table-user.component';
+import { InsertUserComponent } from './insert-user/insert-user.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ProductNodeComponent,
     InsertNodeComponent,
     ConfirmationDialogComponent,
+    TableUserComponent,
+    InsertUserComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,303 @@
+<div class="wrapper" style="padding-left: 250px">
+  <app-navbar></app-navbar>
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+
+  <div class="form-insert">
+    <ng-container *ngIf="params">
+      <h2>Edit User</h2>
+    </ng-container>
+    <ng-container *ngIf="!params">
+      <h2>Add User</h2>
+    </ng-container>
+    <form [formGroup]="insertFrm" (ngSubmit)="onSubmit()">
+      <!-- Field Id -->
+      <ng-container *ngIf="params && editData.length > 0">
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="id"
+            [(ngModel)]="editData[0].id"
+            formControlName="id"
+            placeholder="Id"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.id.invalid &&
+              (insertFrm.controls.id.dirty || insertFrm.controls.id.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.id.hasError('required')"
+              class="text-danger"
+              >Id is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!params">
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="id"
+            formControlName="id"
+            placeholder="Id"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.id.invalid &&
+              (insertFrm.controls.id.dirty || insertFrm.controls.id.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.id.hasError('required')"
+              class="text-danger"
+              >Id is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- End of field id -->
+
+      <!-- Field price -->
+
+      <ng-container *ngIf="params && editData.length > 0">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="editData[0].email"
+            id="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.email.invalid &&
+              (insertFrm.controls.email.dirty ||
+                insertFrm.controls.email.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.email.hasError('required')"
+              class="text-danger"
+              >Email is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!params">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.email.invalid &&
+              (insertFrm.controls.email.dirty ||
+                insertFrm.controls.email.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.email.hasError('required')"
+              class="text-danger"
+              >Email is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- End of field email -->
+
+      <!-- Field Provider -->
+      <ng-container *ngIf="params && editData.length > 0">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="editData[0].firstName"
+            id="firstName"
+            formControlName="firstName"
+            placeholder="FirstName"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.firstName.invalid &&
+              (insertFrm.controls.firstName.dirty ||
+                insertFrm.controls.firstName.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.firstName.hasError('required')"
+              class="text-danger"
+              >First Name is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!params">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+            placeholder="FirstName"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.firstName.invalid &&
+              (insertFrm.controls.firstName.dirty ||
+                insertFrm.controls.firstName.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.firstName.hasError('required')"
+              class="text-danger"
+              >First Name is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- End of field firstName -->
+
+      <!-- Field lastName -->
+      <ng-container *ngIf="params && editData.length > 0">
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="editData[0].lastName"
+            id="lastName"
+            formControlName="lastName"
+            placeholder="lastName"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.lastName.invalid &&
+              (insertFrm.controls.lastName.dirty ||
+                insertFrm.controls.lastName.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.lastName.hasError('required')"
+              class="text-danger"
+              >Last Name is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!params">
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+            placeholder="LastName"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.lastName.invalid &&
+              (insertFrm.controls.lastName.dirty ||
+                insertFrm.controls.lastName.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.lastName.hasError('required')"
+              class="text-danger"
+              >Last Name is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Field lastName -->
+
+      <!-- Field role -->
+      <ng-container *ngIf="params && editData.length > 0">
+        <div class="form-group">
+          <label for="role">Role</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="editData[0].role"
+            id="role"
+            formControlName="role"
+            placeholder="Role"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.role.invalid &&
+              (insertFrm.controls.role.dirty || insertFrm.controls.role.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.role.hasError('required')"
+              class="text-danger"
+              >Role is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!params">
+        <div class="form-group">
+          <label for="role">Role</label>
+          <input
+            type="text"
+            class="form-control"
+            id="role"
+            formControlName="role"
+            placeholder="Role"
+          />
+          <div
+            *ngIf="
+              insertFrm.controls.role.invalid &&
+              (insertFrm.controls.role.dirty || insertFrm.controls.role.touched)
+            "
+          >
+            <small
+              *ngIf="insertFrm.controls.role.hasError('required')"
+              class="text-danger"
+              >Role is required.</small
+            >
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Field role -->
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!insertFrm.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <div class="footer-table">
+    <app-footer></app-footer>
+  </div>
+</div>

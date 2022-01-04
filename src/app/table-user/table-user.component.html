@@ -5,8 +5,8 @@
   <!-- Table Products -->
   <div class="example-container mat-elevation-z8">
     <div class="card-header border-0">
-      <h2 class="mb-0">Product table</h2>
-      <mat-icon class="icon card-header_icon" routerLink="product-insert"
+      <h2 class="mb-0">Users table</h2>
+      <mat-icon class="icon card-header_icon" routerLink="user-insert"
         >add_circle_outline</mat-icon
       >
     </div>
@@ -24,39 +24,41 @@
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="price">
-          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="provider">
-          <mat-header-cell *matHeaderCellDef> Provider </mat-header-cell>
+        <ng-container matColumnDef="firstName">
+          <mat-header-cell *matHeaderCellDef> Frist Name </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{ element.provider }}
+            {{ element.firstName }}
           </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="quantity">
-          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="lastName">
+          <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{ element.quantity }}
+            {{ element.lastName }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+          <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.role }}
           </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="action">
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-icon class="icon" routerLink="product-insert/{{ element.id }}"
+            <mat-icon class="icon" routerLink="user-insert/{{ element.id }}"
               >edit</mat-icon
             >
-            <mat-icon class="icon" (click)="deleteProduct(element.id)"
+            <mat-icon class="icon" (click)="deleteUser(element.key)"
               >delete_outline</mat-icon
             >
           </mat-cell>
@@ -65,9 +67,6 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </mat-table>
-
-    <!-- <mat-paginator [length]="this.items.length" [pageSize]="3"
-    [pageSizeOptions]="[3, 5, 10]"></mat-paginator> -->
 
     <mat-paginator
       #paginator

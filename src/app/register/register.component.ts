@@ -1,6 +1,7 @@
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   private formSubmitAttempt: boolean;
   isSignedIn = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService,private router: Router) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -36,6 +37,7 @@ export class RegisterComponent implements OnInit {
       );
       if (this.authService.isLoggedIn) {
         this.isSignedIn = true;
+        this.router.navigate(['/']);
       }
       // this.authService.signIn(this.form.value);
     }
